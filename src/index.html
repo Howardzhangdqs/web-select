@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web选择测试</title>
+</head>
+
+<body>
+    <!-- <div class="box1 test-box">box1</div>
+    <div class="box2 test-box">box2</div> -->
+    <script>
+        window.onload = () => {
+            for (let i = 0; i < 10; i++) {
+                // 在随机位置创建dom
+                const box = document.createElement('div');
+                box.className = 'test-box';
+                box.style.left = Math.random() * document.body.clientWidth + 'px';
+                box.style.top = Math.random() * document.body.clientHeight + 'px';
+                box.innerText = 'box' + i;
+                document.body.appendChild(box);
+            }
+        };
+    </script>
+    <style>
+        .box1 {
+            left: 100px;
+            top: 100px;
+        }
+
+        .box2 {
+            left: 500px;
+            top: 30px;
+        }
+
+        .test-box {
+            position: absolute;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</body>
+
+</html>

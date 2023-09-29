@@ -1,5 +1,7 @@
 # Web Select
 
+[简体中文](./README-zh-cn.md) | [繁体中文](./README-zh-tw.md)
+
 > Copy tables and formatted content with web select
 >
 > Web select makes copying content much easier than highlighting with your cursor. Web select opens a selection window that lets you easily select and copy tables or parts of tables, without the parts you don't want. To open web select, right-click on the web page and select web capture from the context menu and then choose web select or press Ctrl+Shift+X on your keyboard.
@@ -20,6 +22,7 @@ Press Alt+S in any page to select text. The selected text will be automatically 
 
 ## TODO
 
+- [ ] Dynamically track DOM position changes
 - [ ] Make it a browser extension and integrate it into the right-click menu.
 - [ ] Click to select text mode.
 

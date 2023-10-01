@@ -1,8 +1,8 @@
 # 網路捕獲
 
-> 截取移動內容的屏幕截圖
+> 抓取整個網頁的屏幕截圖
 > 
-> 使用網路捕獲，您可以更輕鬆，更精確地截取視頻，GIF，輪播等移動內容的屏幕截圖。
+> 使用 Web 捕獲獲取整個網頁的螢幕截圖，甚至是對螢幕來說太大的頁面。按 Ctrl+Shift+S 並選擇 捕獲整頁。
 >
 > —— [Microsoft Edge 功能和提示](https://www.microsoft.com/zh-tw/edge/features/web-capture)
 

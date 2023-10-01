@@ -7,6 +7,8 @@ import { isChild } from "./select";
 
 
 export const main = async () => {
+    const quit = () => {};
+
     const ElementPositions = getElementsPosition();
 
     console.log(ElementPositions);
@@ -14,8 +16,6 @@ export const main = async () => {
     const allBoxes: ElementPositionWithDiv[] = [];
 
     for (const position of ElementPositions) allBoxes.push(makeDiv(position));
-
-    // console.log("请框选一个元素")
 
     const selectedBox = await dragSelect(allBoxes);
 
@@ -39,12 +39,6 @@ export const main = async () => {
 
 };
 
-// const button = makeButton();
-// button.addEventListener('click', async () => {
-//     button.style.display = 'none';
-//     await main();
-//     button.style.display = "block";
-// });
 
 // 按下alt+s
 window.addEventListener("keydown", (e) => {

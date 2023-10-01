@@ -1,4 +1,5 @@
 import { isChild } from './select';
+import * as styles from './styles';
 
 export type ElementPosition = {
     top: number;
@@ -37,12 +38,6 @@ export const makeButton = (top?: number, left?: number) => {
     return button;
 };
 
-const styles = {
-    UnselectedBoxStyle: '1px dashed grey',
-    SelectedBoxStyle: '1px solid black',
-    SelectBoxStyle: '2px solid red',
-};
-
 
 // 获取页面中的所有元素的top、left、width、height
 export const getElementsPosition = () => {
@@ -68,7 +63,7 @@ export const makeDiv = ({ top, left, width, height, text, src }: ElementPosition
     div.style.left = `${left}px`;
     div.style.width = `${width}px`;
     div.style.height = `${height}px`;
-    div.style.border = styles.UnselectedBoxStyle;
+    styles.addStylesheetRules(div, styles.UnselectedBoxStyle);
     div.style.zIndex = "99999";
     document.body.appendChild(div);
 
@@ -87,7 +82,7 @@ export const dragSelect = (allBoxes: ElementPositionWithDiv[]) => {
         div.style.left = '0';
         div.style.width = '0';
         div.style.height = '0';
-        div.style.border = styles.SelectBoxStyle;
+        styles.addStylesheetRules(div, styles.SelectBoxStyle);
         div.style.borderRadius = '6px';
         div.style.zIndex = "99999";
         document.body.appendChild(div);
@@ -150,9 +145,9 @@ export const dragSelect = (allBoxes: ElementPositionWithDiv[]) => {
 
             for (const el of allBoxes) {
                 if (selectedElements.includes(el)) {
-                    el.el.style.border = styles.SelectedBoxStyle;
+                    styles.addStylesheetRules(el.el, styles.SelectedBoxStyle);
                 } else {
-                    el.el.style.border = styles.UnselectedBoxStyle;
+                    styles.addStylesheetRules(el.el, styles.UnselectedBoxStyle);
                 }
             }
 
@@ -163,7 +158,11 @@ export const dragSelect = (allBoxes: ElementPositionWithDiv[]) => {
             document.removeEventListener('mousemove', mouseMove);
             document.removeEventListener('mouseup', mouseUp);
             document.removeEventListener('mousedown', mouseDown);
+
             div.remove();
+
+            styles.addStylesheetRules(document.body, { pointerEvents: "" })
+
             resolve({
                 top: parseInt(div.style.top),
                 left: parseInt(div.style.left),
@@ -175,5 +174,7 @@ export const dragSelect = (allBoxes: ElementPositionWithDiv[]) => {
 
         document.addEventListener('mousedown', mouseDown);
         document.addEventListener('mouseup', mouseUp);
+
+        styles.addStylesheetRules(document.body, { pointerEvents: "none" })
     });
 }

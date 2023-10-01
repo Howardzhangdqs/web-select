@@ -2,9 +2,9 @@
 
 [简体中文](./README-zh-cn.md) | [繁体中文](./README-zh-tw.md)
 
-> Copy tables and formatted content with web select
->
-> Web select makes copying content much easier than highlighting with your cursor. Web select opens a selection window that lets you easily select and copy tables or parts of tables, without the parts you don't want. To open web select, right-click on the web page and select web capture from the context menu and then choose web select or press Ctrl+Shift+X on your keyboard.
+> Grab screenshots of your whole webpage
+> 
+> Use web capture to get a screenshot of your entire webpage, even pages that are too big for your screen. Press Ctrl+Shift+S and select Capture full page.
 > 
 > —— [Microsoft Edge Features&Tips](https://www.microsoft.com/en-us/edge/features/web-capture?form=MT00D8)
 

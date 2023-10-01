@@ -1,7 +1,7 @@
 # Web 选择
 
 > 抓取整个网页的屏幕截图
-
+> 
 > 使用 Web 捕获获取整个网页的屏幕截图，甚至是对屏幕来说太大的页面。按 Ctrl+Shift+S 并选择 捕获整页。
 > 
 > —— [Microsoft Edge 功能和提示](https://www.microsoft.com/zh-cn/edge/features/web-capture)

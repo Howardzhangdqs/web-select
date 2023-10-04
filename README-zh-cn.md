@@ -1,8 +1,8 @@
 # Web 选择
 
-> 抓取整个网页的屏幕截图
+> 使用 Web 选择复制表和格式化内容
 > 
-> 使用 Web 捕获获取整个网页的屏幕截图，甚至是对屏幕来说太大的页面。按 Ctrl+Shift+S 并选择 捕获整页。
+> Web 选择使复制内容比用光标突出显示要容易得多。Web 选择将打开一个选择窗口，使您可以轻松选择和复制表或表的一部分，而无需选择不需要的部分。若要打开 Web 选择，请右键单击网页并从上下文菜单中选择 Web 捕获，然后选择 Web 选择或按键盘上的 Ctrl+Shift+X。
 > 
 > —— [Microsoft Edge 功能和提示](https://www.microsoft.com/zh-cn/edge/features/web-capture)
 

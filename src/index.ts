@@ -1,12 +1,28 @@
 import {
     makeButton, getElementsPosition, makeDiv, dragSelect,
     ElementPositionWithDiv
-} from "./util";
+} from "./select";
 
-import { isChild } from "./select";
+import * as utils from "./utils";
+import * as styles from "./styles";
 
 
 export const main = async () => {
+
+    // 创建全屏蒙版
+    const mask = document.createElement("div");
+    styles.addStylesheetRules(mask, {
+        position: "fixed",
+        top: "0",
+        left: "0",
+        inlineSize: "100%",
+        blockSize: "100%",
+        zIndex: "99998",
+        background: "#0007",
+    });
+    // document.body.appendChild(mask);
+
+
     const quit = () => {};
 
     const ElementPositions = getElementsPosition();
@@ -25,7 +41,7 @@ export const main = async () => {
         .filter((val, index, arr) => {
             console.log(val, index, arr);
             for (let i of arr) {
-                if (isChild(i.src, val.src)) return false;
+                if (utils.isChild(i.src, val.src)) return false;
             }
 
             return true;
@@ -42,5 +58,5 @@ export const main = async () => {
 
 // 按下alt+s
 window.addEventListener("keydown", (e) => {
-    if (e.altKey && e.key === 's') main();
+    if (e.key === 's' && e.altKey && !e.ctrlKey && !e.shiftKey) main();
 });

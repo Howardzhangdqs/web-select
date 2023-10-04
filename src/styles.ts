@@ -3,8 +3,8 @@ type StylesSheet = {
 };
 
 export const UnselectedBoxStyle: StylesSheet = {
-    border: "1px solid #fff7",
-    outline: "1px dashed #0007",
+    border: "1px solid #fff",
+    outline: "1px dashed #000",
     outlineOffset: "-1px",
     zIndex: "99999",
 };
@@ -17,13 +17,15 @@ export const SelectedBoxStyle: StylesSheet = {
 };
 
 export const SelectBoxStyle: StylesSheet = {
-    border: "3px dashed red",
-    inlineSize: "0px",
+    position: "fixed",
+    outline: "3px dashed white",
     zIndex: "99999",
 };
 
-export const addStylesheetRules = (dom: HTMLElement, decls: StylesSheet) => {
+export const addStylesheetRules = (dom: HTMLElement | HTMLElement[], decls: StylesSheet) => {
+    if (dom instanceof HTMLElement) dom = [dom];
+
     for (let i in decls) {
-        dom.style[i as any] = decls[i];
+        for (let j of dom) j.style[i as any] = decls[i];
     }
 }

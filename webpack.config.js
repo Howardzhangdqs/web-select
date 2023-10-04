@@ -5,26 +5,6 @@ import UglifyJsPlugin from "uglifyjs-webpack-plugin";
 
 const __dirname = path.resolve();
 
-
-// obj合并
-const merge = (target, source) => {
-    if (typeof target !== 'object') {
-        target = {};
-    }
-    if (Array.isArray(source)) {
-        return [...target, ...source];
-    }
-    Object.keys(source).forEach((property) => {
-        const sourceProperty = source[property];
-        if (typeof sourceProperty === 'object') {
-            target[property] = merge(target[property], sourceProperty);
-            return;
-        }
-        target[property] = sourceProperty;
-    });
-    return target;
-};
-
 const devConfig = {
     entry: './src/entry.ts',
     module: {
@@ -49,8 +29,7 @@ const devConfig = {
         }),
 
     ]
-}
-
+};
 
 export default (env, argv) => {
     if (argv.mode === 'production') {

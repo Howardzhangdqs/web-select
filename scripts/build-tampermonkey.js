@@ -1,4 +1,5 @@
 import fs from "fs";
+import * as prettier from "prettier";
 
 const packageInfo = JSON.parse(fs.readFileSync("./package.json", "utf-8").toString());
 
@@ -6,7 +7,8 @@ const TamperMonkeyHeader = `// ==UserScript==
 // @name                Web选择
 // @name:en             Web Select
 // @name:zh-TW          Web捕獲
-// @namespace           https://github.com/Howardzhangdqs/web-select
+// @namespace           http://howardzhangdqs.eu.org/
+// @source              https://github.com/Howardzhangdqs/web-select
 // @version             ${packageInfo.version}
 // @description         由于Web选择太好用，微软就把他砍掉了。本脚本实现了Web选择的部分功能。按下Alt+S即可选择文本。
 // @description:en      Due to the ease with which the "web select" was used, Microsoft cut it off. This script implements some functions of "web select". Press Alt+S to select text.
@@ -22,6 +24,14 @@ const TamperMonkeyHeader = `// ==UserScript==
 
 const TamperMonkeyScript = fs.readFileSync("./dist/bundle.js", "utf-8").toString();
 
-const TamperMonkeyScriptWithHeader = TamperMonkeyHeader + TamperMonkeyScript;
+prettier.format(TamperMonkeyScript, {
+    semi: true,
+    parser: "babel",
+    tabWidth: 4,
+}).then((FormattedTamperMonkeyScript) => {
 
-fs.writeFileSync("./dist/tampermonkey-script.js", TamperMonkeyScriptWithHeader, "utf-8");
+    const TamperMonkeyScriptWithHeader = TamperMonkeyHeader + FormattedTamperMonkeyScript;
+
+    fs.writeFileSync("./dist/tampermonkey-script.js", TamperMonkeyScriptWithHeader, "utf-8");
+
+});

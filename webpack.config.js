@@ -27,7 +27,7 @@ const devConfig = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
         }),
-
+        // new webpack.NamedModulesPlugin(),
     ]
 };
 
@@ -80,8 +80,11 @@ export default (env, argv) => {
                         },
                     },
                 }),
-
-            ]
+            ],
+            optimization: {
+                moduleIds: 'named',
+                minimize: false,
+            },
         };
     } else return devConfig;
 };
